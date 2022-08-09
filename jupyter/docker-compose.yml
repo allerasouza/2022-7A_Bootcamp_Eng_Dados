@@ -1,0 +1,18 @@
+version: "3.9"
+   
+services:
+  jupyter_lab:
+    container_name: jupyter_lab
+    build: .
+    environment: 
+      - JUPYTER_ENABLE_LAB=yes
+    volumes:
+      - ./src:/code
+    ports:
+      - "8888:8888"
+    networks:
+      - aas-network
+
+networks:
+  aas-network:
+    driver: bridge
